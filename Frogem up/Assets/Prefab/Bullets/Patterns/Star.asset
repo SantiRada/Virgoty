@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2926c65f4fc2dbd4fab8d66f5adf9773, type: 3}
+  m_Name: Star
+  m_EditorClassIdentifier: 
+  repetitions: 1
+  angleOffsetBetweenReps: 0
+  startWait: 0
+  endWait: 1
+  patternSettings:
+  - numberOfBullets: 5
+    bulletSpeed: 3.7
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 41.16
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 4.9
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 63.32
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6.4
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 73.69
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 7.8
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 78.45
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6.5
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 84.26
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 5.3
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 96.48
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 4.55
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 115.99
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 5.9
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 134.52
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 7.3
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 143.47
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 8.6
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 147.19
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 7.3
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 152.32
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6.1
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 162.52
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 5.1
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 180
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6.1
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -162.52
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 7.3
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -152.32
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 8.6
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -147.19
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 7.3
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -143.47
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 5.9
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -134.52
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 4.55
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -115.99
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 5.3
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -96.48
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6.5
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -84.26
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 7.8
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -78.45
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6.4
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -73.69
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 4.9
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -63.32
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 3.7
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -41.16
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 4.6
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -18.12
+    radialMask: 1
+    maskAngle: 52
+  - numberOfBullets: 5
+    bulletSpeed: 6
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: -6
+    radialMask: 1
+    maskAngle: 55
+  - numberOfBullets: 5
+    bulletSpeed: 6
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 6
+    radialMask: 1
+    maskAngle: 55
+  - numberOfBullets: 5
+    bulletSpeed: 7
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 0
+    radialMask: 1
+    maskAngle: 55
+  - numberOfBullets: 5
+    bulletSpeed: 4.6
+    cooldownAfterShot: 0
+    phaseOffset: 0
+    angleOffset: 18.12
+    radialMask: 1
+    maskAngle: 55
