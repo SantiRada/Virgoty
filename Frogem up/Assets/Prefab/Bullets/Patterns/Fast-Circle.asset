@@ -15,11 +15,11 @@ MonoBehaviour:
   repetitions: 5
   angleOffsetBetweenReps: 0
   startWait: 0
-  endWait: 0.4
+  endWait: 1.5
   patternSettings:
   - numberOfBullets: 16
     bulletSpeed: 4
-    cooldownAfterShot: 0.2
+    cooldownAfterShot: 0.6
     phaseOffset: 0
     angleOffset: 0
     radialMask: 0

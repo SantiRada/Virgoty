@@ -1,15 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+    public Dictionary<string, int> data;
+
     private const float MAX_LIFE_TIME = 3f;
     private float _lifeTime = 0f;
 
-    public Vector2 velocity;
+    [HideInInspector] public Vector3 velocity;
 
     private void Update()
     {
-        transform.position += (Vector3)velocity * Time.deltaTime;
+        transform.position += velocity * Time.deltaTime;
         _lifeTime += Time.deltaTime;
 
         if (_lifeTime > MAX_LIFE_TIME) Disable();
@@ -17,6 +20,8 @@ public class Bullet : MonoBehaviour {
     private void Disable()
     {
         _lifeTime = 0f;
+        data = null;
+
         gameObject.SetActive(false);
     }
 }

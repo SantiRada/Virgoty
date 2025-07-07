@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Espiral
   m_EditorClassIdentifier: 
   repetitions: 20
-  angleOffsetBetweenReps: 5
+  angleOffsetBetweenReps: 10
   startWait: 0
-  endWait: 0
+  endWait: 4
   patternSettings:
-  - numberOfBullets: 8
+  - numberOfBullets: 6
     bulletSpeed: 10
-    cooldownAfterShot: 0.1
+    cooldownAfterShot: 0.2
     phaseOffset: 0
     angleOffset: 0
     radialMask: 0

@@ -12,45 +12,55 @@ public class RadialShotPatternVisualizer : MonoBehaviour {
         if (_pattern == null) return;
 
         Gizmos.color = _color;
-
         int lap = 0;
-        Vector2 aimDirection = transform.up;
-        Vector2 center = transform.position;
 
+        Vector3 aimDirection = transform.forward;
+        Vector3 center = transform.position;
         float timer = _testTime;
 
         while (timer > 0f && lap < _pattern.repetitions)
         {
-            if (lap > 0 && _pattern.angleOffsetBetweenReps != 0f) aimDirection = aimDirection.Rotate(_pattern.angleOffsetBetweenReps);
+            if (lap > 0 && _pattern.angleOffsetBetweenReps != 0f)
+                aimDirection = RotateVectorXZ(aimDirection, _pattern.angleOffsetBetweenReps);
 
             for (int i = 0; i < _pattern.patternSettings.Length; i++)
             {
                 if (timer < 0) break;
-
                 DrawRadialShot(_pattern.patternSettings[i], timer, aimDirection);
-
                 timer -= _pattern.patternSettings[i].cooldownAfterShot;
             }
             lap++;
         }
     }
-    private void DrawRadialShot(RadialShotSettings settings, float lifeTime, Vector2 aimDirection)
+    private void DrawRadialShot(RadialShotSettings settings, float lifeTime, Vector3 aimDirection)
     {
         float angleBetweenBullets = 360f / settings.numberOfBullets;
 
         if (settings.angleOffset != 0 || settings.phaseOffset != 0f)
-                aimDirection = aimDirection.Rotate(settings.angleOffset + (settings.phaseOffset * angleBetweenBullets));
+            aimDirection = RotateVectorXZ(aimDirection, settings.angleOffset + (settings.phaseOffset * angleBetweenBullets));
 
         for (int i = 0; i < settings.numberOfBullets; i++)
         {
             float bulletDirectionAngle = angleBetweenBullets * i;
-
             if (settings.radialMask && bulletDirectionAngle > settings.maskAngle) break;
 
-            Vector2 bulletDirection = aimDirection.Rotate(bulletDirectionAngle);
-            Vector2 bulletPosition = (Vector2)transform.position + (bulletDirection * settings.bulletSpeed * lifeTime);
+            Vector3 bulletDirection = RotateVectorXZ(aimDirection, bulletDirectionAngle);
+
+            Vector3 bulletPosition = transform.position + (bulletDirection * settings.bulletSpeed * lifeTime);
 
             Gizmos.DrawSphere(bulletPosition, _radius);
         }
+    }
+    private Vector3 RotateVectorXZ(Vector3 vector, float angle)
+    {
+        float radians = angle * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(radians);
+        float sin = Mathf.Sin(radians);
+
+        return new Vector3(
+            vector.x * cos - vector.z * sin,
+            vector.y,
+            vector.x * sin + vector.z * cos
+        );
     }
 }

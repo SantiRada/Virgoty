@@ -1,48 +1,54 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class WeaponController : MonoBehaviour {
 
     [Header("Weapon Settings")]
     [SerializeField] private float distanceFromPlayer = 1f;
     [SerializeField] private float rotationSmooth = 20f;
+    [SerializeField] private float raycastDistance = 100f;
+    [SerializeField] private LayerMask groundLayer = -1;
 
     private Transform playerT;
-    private SpriteRenderer sprite;
+    private Renderer weaponRenderer;
     private Camera cam;
 
     private void Awake()
     {
         playerT = transform.parent;
-        sprite = GetComponent<SpriteRenderer>();
+        weaponRenderer = GetComponent<Renderer>();
         cam = Camera.main;
     }
     private void Update()
     {
         if (playerT == null || cam == null) return;
 
-        Vector3 mouse = GetMouseWorldPos();
+        Vector3 targetPoint = GetMouseWorldPos3D();
 
-        // Position to Player
-        Vector3 dirFromPlayer = (mouse - playerT.position).normalized;
+        Vector3 dirFromPlayer = (targetPoint - playerT.position).normalized;
         transform.position = playerT.position + dirFromPlayer * distanceFromPlayer;
 
-        // Rotation to Mouse
-        Vector3 dirFromWeapon = mouse - transform.position;
-        float angle = Mathf.Atan2(dirFromWeapon.y, dirFromWeapon.x) * Mathf.Rad2Deg;
+        Vector3 dirFromWeapon = targetPoint - transform.position;
+        dirFromWeapon.y = 0f;
 
-        Quaternion targetRot = Quaternion.Euler(0, 0, angle);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, rotationSmooth * Time.deltaTime);
-
-        // Flip to correct angle
-        sprite.flipY = angle > 90f || angle < -90f;
+        if (dirFromWeapon.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(dirFromWeapon, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, rotationSmooth * Time.deltaTime);
+        }
     }
-    private Vector3 GetMouseWorldPos()
+    private Vector3 GetMouseWorldPos3D()
     {
-        Vector3 screen = Mouse.current.position.ReadValue();
-        screen.z = cam.WorldToScreenPoint(playerT.position).z;
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        Ray ray = cam.ScreenPointToRay(mouseScreenPos);
 
-        return cam.ScreenToWorldPoint(screen);
+        if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance, groundLayer))
+            return hit.point;
+
+        Plane playerPlane = new Plane(Vector3.up, playerT.position);
+        if (playerPlane.Raycast(ray, out float distance))
+            return ray.GetPoint(distance);
+
+        return ray.GetPoint(10f);
     }
 }

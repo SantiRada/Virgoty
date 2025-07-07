@@ -15,7 +15,7 @@ MonoBehaviour:
   repetitions: 1
   angleOffsetBetweenReps: 0
   startWait: 0
-  endWait: 1
+  endWait: 2
   patternSettings:
   - numberOfBullets: 4
     bulletSpeed: 5.4

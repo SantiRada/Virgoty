@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class WeaponManager : MonoBehaviour {
+
+    public string nameOwner = "Player";
+    public int damage = 3;
 
     [SerializeField] private float _shootCooldown;
     [SerializeField] private RadialShotSettings _shotSettings;
@@ -24,7 +28,9 @@ public class WeaponManager : MonoBehaviour {
         {
             canShot = false;
             _shootCooldownTimer = _shootCooldown;
-            ShotAttack.SimpleShot(transform.position, transform.right * _shotSettings.bulletSpeed);
+            Dictionary<string, int> data = new Dictionary<string, int>();
+            data.Add(nameOwner, damage);
+            ShotAttack.SimpleShot(transform.position, transform.forward * _shotSettings.bulletSpeed, data);
         }
     }
 }

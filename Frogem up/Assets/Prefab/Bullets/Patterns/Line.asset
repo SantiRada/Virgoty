@@ -10,24 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2926c65f4fc2dbd4fab8d66f5adf9773, type: 3}
-  m_Name: -45
+  m_Name: Line
   m_EditorClassIdentifier: 
-  repetitions: 5
-  angleOffsetBetweenReps: 15
+  repetitions: 8
+  angleOffsetBetweenReps: 0
   startWait: 0
-  endWait: 0.5
+  endWait: 3
   patternSettings:
-  - numberOfBullets: 48
+  - numberOfBullets: 1
     bulletSpeed: 4
-    cooldownAfterShot: 0.5
+    cooldownAfterShot: 1.25
     phaseOffset: 0
-    angleOffset: 125
+    angleOffset: 0
     radialMask: 1
-    maskAngle: 300
-  - numberOfBullets: 48
-    bulletSpeed: 4
-    cooldownAfterShot: 0.5
-    phaseOffset: 0
-    angleOffset: 125
-    radialMask: 1
-    maskAngle: 300
+    maskAngle: 52
