@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2 moveInput;
     private Vector3 velocity;
     private Camera mainCamera;
-    private PlayerInputActions inputActions;
+    [HideInInspector] public PlayerInputActions inputActions;
     private bool isGrounded;
 
     private void Awake()

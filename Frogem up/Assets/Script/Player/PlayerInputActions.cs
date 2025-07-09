@@ -7,6 +7,7 @@ public class PlayerInputActions : System.IDisposable {
     private InputActionMap playerMap;
     private InputAction moveAction;
     private InputAction jumpAction;
+    private InputAction shotAction;
 
     public PlayerInputActions()
     {
@@ -35,7 +36,13 @@ public class PlayerInputActions : System.IDisposable {
         // Crear la acción de salto
         jumpAction = playerMap.AddAction("Jump", InputActionType.Button);
         jumpAction.AddBinding("<Keyboard>/space");
-        jumpAction.AddBinding("<Gamepad>/buttonSouth"); // A en Xbox, X en PlayStation
+        jumpAction.AddBinding("<Gamepad>/buttonSouth");
+
+        // Crear la acción de disparar
+        shotAction = playerMap.AddAction("Shot", InputActionType.Button);
+        shotAction.AddBinding("<Mouse>/leftButton");
+        shotAction.AddBinding("<Gamepad>/rightTrigger");
+        shotAction.AddBinding("<Gamepad>/rightShoulder");
 
         // Habilitar el action map
         playerMap.Enable();
@@ -60,6 +67,7 @@ public class PlayerInputActions : System.IDisposable {
 
         public InputAction Move => wrapper.moveAction;
         public InputAction Jump => wrapper.jumpAction;
+        public InputAction Shot => wrapper.shotAction;
 
         public void Enable() => wrapper.playerMap.Enable();
         public void Disable() => wrapper.playerMap.Disable();

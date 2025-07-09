@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2926c65f4fc2dbd4fab8d66f5adf9773, type: 3}
   m_Name: Line
   m_EditorClassIdentifier: 
-  repetitions: 8
+  repetitions: 2
   angleOffsetBetweenReps: 0
   startWait: 0
-  endWait: 3
+  endWait: 2
   patternSettings:
   - numberOfBullets: 1
-    bulletSpeed: 4
-    cooldownAfterShot: 1.25
+    bulletSpeed: 5.5
+    cooldownAfterShot: 0.5
     phaseOffset: 0
     angleOffset: 0
     radialMask: 1

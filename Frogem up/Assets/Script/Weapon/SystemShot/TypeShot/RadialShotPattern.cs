@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "BulletHell System/Radial Shot Pattern")]
+[CreateAssetMenu(menuName = "Weapon System/Shot Pattern")]
 public class RadialShotPattern : ScriptableObject {
 
     public int repetitions;
