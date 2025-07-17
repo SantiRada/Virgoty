@@ -3,20 +3,9 @@ using UnityEngine;
 
 public class Spawners : MonoBehaviour {
 
-    [Header("Appear Data")]
-    public EnemyBase enemyPrefab;
-    [Tooltip("Sprite de X en el suelo")] public GameObject basePrefab;
-    public float timeToAppear;
-
     [Header("Load Stats")]
+    public SpawnerEnemy spawnEnemy;
     public bool canLoadEnemies = true;
-    [Space]
-    public float timerToInitial;
-    public float timeBetweenEnemy;
-    public float timeBetweenWave;
-    [Space]
-    public int totalEnemies;
-    public Vector2 minMaxPerWaves;
 
     private CameraController _camera;
 
@@ -34,20 +23,20 @@ public class Spawners : MonoBehaviour {
     }
     private IEnumerator LoadEnemies()
     {
-        yield return new WaitForSeconds(timerToInitial);
+        yield return new WaitForSeconds(spawnEnemy.timerToInitial);
 
-        while (totalEnemies > 0)
+        while (spawnEnemy.totalEnemies > 0)
         {
-            int count = (int)Random.Range(minMaxPerWaves.x, minMaxPerWaves.y);
+            int count = (int)Random.Range(spawnEnemy.minMaxPerWaves.x, spawnEnemy.minMaxPerWaves.y);
             for (int i = 0; i < count; i++)
             {
                 StartCoroutine(CreateEnemy());
-                totalEnemies--;
-                if (totalEnemies <= 0) break;
-                yield return new WaitForSeconds(timeBetweenEnemy);
+                spawnEnemy.totalEnemies--;
+                if (spawnEnemy.totalEnemies <= 0) break;
+                yield return new WaitForSeconds(spawnEnemy.timeBetweenEnemy);
             }
 
-            yield return new WaitForSeconds(timeBetweenWave);
+            yield return new WaitForSeconds(spawnEnemy.timeBetweenWaves);
         }
     }
     private IEnumerator CreateEnemy()
@@ -56,10 +45,10 @@ public class Spawners : MonoBehaviour {
         float valueZ = Random.Range(_camera.minPos.y + 1, _camera.maxPos.y - 1);
         Vector3 newPos = new Vector3(valueX, 0.5f, valueZ);
 
-        GameObject baseView = Instantiate(basePrefab, newPos, Quaternion.identity);
-        yield return new WaitForSeconds(timeToAppear);
+        GameObject baseView = Instantiate(spawnEnemy.basePrefab, newPos, Quaternion.identity);
+        yield return new WaitForSeconds(spawnEnemy.timeToAppear);
 
-        GameObject enemy = Instantiate(enemyPrefab.gameObject, newPos, Quaternion.identity);
+        GameObject enemy = Instantiate(spawnEnemy.enemyPrefab.gameObject, newPos, Quaternion.identity);
         Destroy(baseView.gameObject);
     }
 }

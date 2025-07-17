@@ -1,6 +1,5 @@
 using UnityEngine;
 
-public enum Stats { life, speed, shield }
 [CreateAssetMenu(menuName = "Improvement System/Improvement")]
 public class Improvement : ScriptableObject {
 

@@ -40,6 +40,11 @@ public class WeaponObject : MonoBehaviour {
 
         data.Add("Player", obj.damage);
     }
+    public void ChangeWeapon(Weapon newWeapon)
+    {
+        // FALTA HACER CAMBIOS VISUALES
+        obj = newWeapon;
+    }
     private void OnShot(InputAction.CallbackContext context) { isPressed = true; }
     private void OnUpShot(InputAction.CallbackContext context)
     {

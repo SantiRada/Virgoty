@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac6c62c50c824245afbb9d6aceeb038, type: 3}
+  m_Name: Speed+05
+  m_EditorClassIdentifier: 
+  nameItem: Velocidad +0.5
+  descItem: Mejora tu velocidad de movimiento un 0.5
+  icon: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  isWeapon: 0
+  weaponView: {fileID: 0}
+  modifyStats: 1
+  newValue: 0.5

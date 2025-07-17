@@ -28,10 +28,22 @@ public class ImprovementSystem : MonoBehaviour {
 
     private List<int> ints = new List<int>();
     private List<int> itemList = new List<int>();
+    private int selectedValue = -1;
 
-    private void Start()
+    private WaveSystem waveSystem;
+    private WeaponObject weaponObj;
+    private StatsManager statsManager;
+
+    private void Awake()
+    {
+        waveSystem = GetComponentInParent<WaveSystem>();
+        statsManager = FindObjectOfType<StatsManager>();
+        weaponObj = FindObjectOfType<WeaponObject>();
+    }
+    private void OnEnable()
     {
         for(int i = 0; i < improvements.Length; i++) { ints.Add(i); }
+        selectedValue = -1;
     }
     public void Roll()
     {
@@ -43,10 +55,23 @@ public class ImprovementSystem : MonoBehaviour {
             items[i].sprite = improvements[itemList[i]].icon;
         }
 
+        selectedValue = -1;
+
         Highlight(0);
     }
-    private void Highlight(int pos)
+    public void Highlight(int pos)
     {
+        if(selectedValue == pos)
+        {
+            SelectedOption(pos);
+            return;
+        }
+
+        selectedValue = pos;
+
+        nameText.text = improvements[itemList[pos]].nameItem;
+        descText.text = improvements[itemList[pos]].descItem;
+
         if (improvements[itemList[pos]].isWeapon)
         {
             sectorWeapon.gameObject.SetActive(true);
@@ -80,8 +105,14 @@ public class ImprovementSystem : MonoBehaviour {
         }
         else
         {
-            sectorStats.gameObject.SetActive(true);
             sectorWeapon.gameObject.SetActive(false);
+            sectorStats.gameObject.SetActive(true);
+
+            Improvement item = improvements[itemList[pos]];
+
+            valueStats[0].text = "+" + item.newValue.ToString();
+            subStats[0].text = item.modifyStats.ToString();
+            sliderStats[0].value = item.newValue;
         }
     }
     private List<int> CompleteItems()
@@ -97,5 +128,30 @@ public class ImprovementSystem : MonoBehaviour {
         }
 
         return newItems;
+    }
+    private void SelectedOption(int pos)
+    {
+        if (improvements[itemList[pos]].isWeapon)
+        {
+            weaponObj.ChangeWeapon(improvements[itemList[pos]].weaponView);
+        }
+        else
+        {
+            switch (improvements[itemList[pos]].modifyStats)
+            {
+                case Stats.life:
+                    statsManager.life += improvements[itemList[pos]].newValue;
+                    break;
+                case Stats.speed: 
+                    statsManager.speed += improvements[itemList[pos]].newValue;
+                    break;
+                case Stats.shield:
+                    statsManager.shield += improvements[itemList[pos]].newValue;
+                    break;
+
+            }
+        }
+
+        waveSystem.LaunchWave();
     }
 }

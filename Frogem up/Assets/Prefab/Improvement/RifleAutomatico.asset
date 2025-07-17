@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac6c62c50c824245afbb9d6aceeb038, type: 3}
+  m_Name: RifleAutomatico
+  m_EditorClassIdentifier: 
+  nameItem: "Rifle Autom\xE1tico"
+  descItem: "Dispara r\xE1fagas continuas con buena precisi\xF3n. Ideal para combates
+    a media distancia."
+  icon: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  isWeapon: 1
+  weaponView: {fileID: 11400000, guid: 8c23b06736dca98408dbef66a3149e0a, type: 2}
+  modifyStats: 0
+  newValue: 0
